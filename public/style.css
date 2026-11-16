@@ -1,0 +1,27 @@
+/* A moldura do tabuleiro */
+#tabuleiro-container {
+    display: grid;                          /* transforma o main em grade inteligente */
+    grid-template-columns: repeat(8, 1fr);  /* Cria 8 colunas de mesmo tamanho */
+    grid-template-rows: repeat(8, 1fr);     /* Divide a altura em 8 fileiras iguais */
+    width: 400px;                           /* Largura fixa inicial para teste */
+    height: 400px;                          /* Altura igual à largura para ficar quadrado */
+    border: 2px solid #333;               /* Cria uma borda estilizada */  
+    margin: 20px auto;                      /* centraliza o tabuleiro na tela */
+}
+
+/* Estilo base que toda casa do tabuleiro terá */
+.casa {
+    width: 100%;
+    height: 100%;
+    cursor: pointer; /* Mudar o mouse para mãozinha ao passar por cima (boa prática */
+}
+
+/* Efeito visual ao passar o mouse por cima de qualquer casa */
+.casa:hover {
+    filter: brightness(1.15); /* Aumenta o brilho da cor original */
+    box-shadow: inset 0 0 0 3px rgba(255, 255, 0, 0.7); /* Borda interna amarela */
+}
+
+/* Cores alternadas das casas (Regra RN01) */
+.clara {background-color: #eeeed2;}
+.escura {background-color: #769656;}
