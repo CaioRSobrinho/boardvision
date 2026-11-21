@@ -1,0 +1,76 @@
+/* O novo embrulho que gere a posição das coordenadas e do tabuleiro*/
+.tabuleiro-wrapper {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    grid-template-rows: 1fr 20px;
+
+    width: 100%;
+    max-width: 450px;
+    margin: 20px auto;
+}
+
+/* O tabuleiro 8x8 perdeu as margens e foca-se apenas no aspeto quadro*/
+#tabuleiro-container {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    aspect-ratio: 1/1;
+    border: 2px solid #333;
+}
+
+/* Estilo da barra esquerda com os números */
+.coordenadas-numeros {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #94a3b8;
+}
+
+/* Estilo da barra inferior com as letras */
+
+.coordenadas-letras {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    grid-column: 2;
+    font-size: 14px;
+    font-weight: bold;
+    color: #94a3b8;
+}
+
+/* Estilo base que toda casa do tabuleiro terá */
+.casa {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+/* Efeito visual ao passar o mouse por cima de qualquer casa */
+.casa:hover {
+    filter: brightness(1.15);
+    box-shadow: inset 0 0 0 3px rgba(255, 255, 0, 0.7);
+}
+
+/* Cores alternadas das casas (Regra RN01) */
+.clara {
+    background-color: #eeeed2;
+}
+
+.escura {
+    background-color: #769656;
+}
+
+/* Feedback visual de clique */
+
+.casa.acerto {
+    background-color: #22c55e;
+    transition: background-color 0.2s ease;
+}
+
+.casa.erro {
+    background-color: #ef4444;
+    transition: background-color 0.2s ease;
+}

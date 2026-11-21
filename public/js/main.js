@@ -1,5 +1,6 @@
 import { gerarNovaCoordenada } from './sorteio.js';
 import { validarJogada } from './jogo.js';
+import { criarTabuleiro } from './tabuleiro.js';
 
 const elementoAlvo = document.getElementById('coordenada-alvo');
 const botaoTeste = document.getElementById('btn-testar-sorteio');
@@ -12,15 +13,26 @@ function atualizarRodadaNaTela() {
 }
 
 function lidarComCliqueTabuleiro(event) {
-    const casaClicada = event.target.dataset.square;
-    if (!casaClicada) return;
+    const elementoClicado = event.target;
+    const coordenada = elementoClicado.dataset.square
 
-    const resultado = validarJogada(casaClicada);
-    console.log(resultado);
+    if (!coordenada) return;
+
+    const resultado = validarJogada(coordenada);
 
     if (resultado.acertou) {
+        elementoClicado.classList.add('acerto');
+        setTimeout(() => elementoClicado.classList.remove('acerto'), 300);
+
         atualizarRodadaNaTela()
+    } else {
+        elementoClicado.classList.add('erro');
+        setTimeout(() => elementoClicado.classList.remove('erro'), 300);
     }
+}
+
+if (containerTabuleiro) {
+    criarTabuleiro(containerTabuleiro);
 }
 
 atualizarRodadaNaTela();
