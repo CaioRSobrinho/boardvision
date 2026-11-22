@@ -7,13 +7,46 @@
 
 body {
     /* Cor de fundo escura e texto claro (Dark Mode) */
-    background-color: #0f172a; 
+    background-color: #0f172a;
     color: #f8fafc;
     font-family: sans-serif;
-    
+
     /* Centraliza tudo na tela */
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 50px 20px 20px 20px;
+}
+
+/* Estilos do Painel Superior */
+#painel-topo {
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#painel-topo h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.placar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #1e293b;
+    /* Fundo um pouco mais claro que o body */
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Cores das pontuações */
+.acertos { color: #22c55e; }
+.erros { color: #ef4444 }
+
+#coordenada-alvo {
+    font-size: 20px;
+    color: #facc15; /* Amarelo destaque */
 }

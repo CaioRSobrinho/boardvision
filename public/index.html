@@ -12,10 +12,13 @@
     <!-- Painel Superior: Onde a coordenada sorteada aparece em destaque (US03) -->
     <header id="painel-topo">
         <h1>Boardvision ♟️</h1>
-        <p>Encontre a casa: <strong id="coordenada-alvo">--</strong></p>
 
-        <!--Botão provisório apenas para testar o sorteio antes do tabuleiro ficar pronto-->
-        <button id="btn-testar-sorteio">Sortear Próxima casa</button>
+        <div class="Placar">
+            <div class="pontuacao acerto">Acertos: <span id="qtd-acertos">0</span></div>
+            <div class="pontuacao sequencia">Sequencia de acertos: <span id="qtd-sequencia">0</span></div>
+        </div>
+
+        <p>Encontre a casa: <strong id="coordenada-alvo">--</strong></p>
     </header>
 
     <!-- Área reservada para o Front-End construir o Tabuleiro 8x8 na US02 -->
