@@ -18,3 +18,8 @@ export function validarJogada(casaClicada) {
     }
     return { acertou, pontos, sequencia };
 }
+
+export function resetarPlacar() {
+    pontos = 0;
+    sequencia = 0;
+}
