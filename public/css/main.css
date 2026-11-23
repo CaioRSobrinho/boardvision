@@ -1,3 +1,4 @@
 /* A ordem importa: primeiro a base, depois os componentes */
 @import './base.css';
 @import './tabuleiro.css';
+@import './modal.css';

@@ -45,6 +45,21 @@
 
     <!--Importação do script principal de lógica-->
     <script type="module" src="./js/main.js"></script>
+    
+    <!-- MODAL DE FIM DE JOGO -->
+    <div id="modal-fim-jogo" class="modal-overlay oculto">
+        <div class="modal-conteudo">
+            <h2>Fim de Jogo!</h2>
+            <div class="estatistica">
+                <p>Pontuação: <span id="modal-pontos">0</span></p>
+                <p>Erros: <span id="modal-erros">0</span></p>
+                <p>Maior Sequência: <span id="modal-streak">0</span></p>
+                <p>Precisão <span id="modal-precisao">0%</span></p>
+            </div>
+
+            <button id="btn-restart-modal">Jogar Novamente</button>
+        </div>
+    </div>
 </body>
 
 </html>
