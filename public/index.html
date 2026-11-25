@@ -22,7 +22,7 @@
         </div>
 
         <p>Encontre a casa: <strong id="coordenada-alvo">--</strong></p>
-        
+
         <button id="btn-iniciar">Começar Jogo</button>
     </header>
 
@@ -30,22 +30,28 @@
     <!-- O novo embrulho que gere a posição das coordenadas e do tabuleiro -->
     <div class="tabuleiro-wrapper">
         <!-- Barra lateral esquerda (números de 8 a 1 descendo·)-->
-         <div class="coordenadas-numeros">
+        <div id="rotulos-numeros" class="coordenadas-numeros">
             <span>8</span><span>7</span><span>6</span><span>5</span><span>4</span><span>3</span><span>2</span><span>1</span>
-         </div>
+        </div>
 
-         <!-- O container alvo onde o seu JS vai injetar as 64 casas dinamicamente-->
-          <div id="tabuleiro-container"></div>
+        <!-- O container alvo onde o seu JS vai injetar as 64 casas dinamicamente-->
+        <div id="tabuleiro-container"></div>
 
-          <!-- Barra inferior (letras de a até h)-->
-           <div class="coordenadas-letras">
+        <!-- Barra inferior (letras de a até h)-->
+        <div id="rotulos-letras" class="coordenadas-letras">
             <span>a</span><span>b</span><span>c</span><span>d</span><span>e</span><span>f</span><span>g</span><span>h</span>
-           </div>
+        </div>
+    </div>
+
+    <!-- Botões de controle -->
+    <div class="controles-visão">
+        <button id="btn-modo-cego">Modo Cego</button>
+        <button id="btn-girar-tabuleiro">Girar Tabuleiro</button>
     </div>
 
     <!--Importação do script principal de lógica-->
     <script type="module" src="./js/main.js"></script>
-    
+
     <!-- MODAL DE FIM DE JOGO -->
     <div id="modal-fim-jogo" class="modal-overlay oculto">
         <div class="modal-conteudo">

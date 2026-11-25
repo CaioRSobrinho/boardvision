@@ -1,27 +1,43 @@
-const COLUNAS = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',];
-const FILEIRAS = ['1', '2', '3', '4', '5', '6', '7', '8',]
+export class Tabuleiro {
+    constructor(containerDOM) {
+        this.containerDOM = containerDOM;
+        this.visaoBrancas = true;
+        this.colunaLetras = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+        this.fileiraNumeros = ['1', '2', '3', '4', '5', '6', '7', '8'];
+    }
+    renderizar() {
+        this.containerDOM.innerHTML = '';
 
-/**
- * Exporta a função para o main.js usar recebendo o container como alvo
- * @return {string}
- */
-export function criarTabuleiro(containerTabuleiro) {
-    for (let i = FILEIRAS.length - 1; i >= 0; i--) {
-        for (let j = 0; j < COLUNAS.length; j++) {
-            const coordenadaCasa = COLUNAS[j] + FILEIRAS[i];
+        let ordemFileiraNumeros;
+        let ordemColunaLetras;
 
-            const casaTabuleiro = document.createElement('div');
-            casaTabuleiro.classList.add('casa');
+        if (this.visaoBrancas) {
+            ordemFileiraNumeros = [...this.fileiraNumeros].reverse();
+            ordemColunaLetras = this.colunaLetras;
+        } else {
+            ordemFileiraNumeros = this.fileiraNumeros;;
+            ordemColunaLetras = [...this.colunaLetras].reverse();
+        }
+        for (const numero of ordemFileiraNumeros) {
+            for (const letra of ordemColunaLetras) {
+                let coordenadaCasa = letra + numero;
+                
+                const indiceLetra = this.colunaLetras.indexOf(letra);
+                const indiceNumero = this.fileiraNumeros.indexOf(numero);
+                const eCasaClara = (indiceLetra + indiceNumero) % 2 !== 0;
+                const casaTabuleiro = document.createElement('div');
+                casaTabuleiro.classList.add('casa');  
 
-            if ((i + j) % 2 !== 0) {
-                casaTabuleiro.classList.add('clara');
-            } else {
-                casaTabuleiro.classList.add('escura');
+                if(eCasaClara) {
+                    casaTabuleiro.classList.add('clara');
+                } else {
+                    casaTabuleiro.classList.add('escura');
+                }
+
+                casaTabuleiro.dataset.square = coordenadaCasa;
+
+                this.containerDOM.appendChild(casaTabuleiro);
             }
-
-            casaTabuleiro.dataset.square = coordenadaCasa;
-
-            containerTabuleiro.appendChild(casaTabuleiro);
         }
     }
 }

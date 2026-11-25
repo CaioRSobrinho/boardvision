@@ -1,8 +1,9 @@
 /* O novo embrulho que gere a posição das coordenadas e do tabuleiro*/
 .tabuleiro-wrapper {
     display: grid;
-    grid-template-columns: 20px 1fr;
-    grid-template-rows: 1fr 20px;
+    grid-template-columns: 20px auto;
+    grid-template-rows: auto 20px;
+    gap: 5px;
 
     width: 100%;
     max-width: 450px;
@@ -11,6 +12,9 @@
 
 /* O tabuleiro 8x8 perdeu as margens e foca-se apenas no aspeto quadro*/
 #tabuleiro-container {
+    grid-column: 2;
+    grid-row: 1;
+
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(8, 1fr);
@@ -20,6 +24,9 @@
 
 /* Estilo da barra esquerda com os números */
 .coordenadas-numeros {
+    grid-column: 1;
+    grid-row: 1;
+
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -27,11 +34,15 @@
     font-size: 14px;
     font-weight: bold;
     color: #94a3b8;
+
+    transition: opacity 0.3s ease;
 }
 
 /* Estilo da barra inferior com as letras */
-
 .coordenadas-letras {
+    grid-column: 2;
+    grid-row: 2;
+
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -39,6 +50,8 @@
     font-size: 14px;
     font-weight: bold;
     color: #94a3b8;
+
+    transition: opacity 0.3s ease;
 }
 
 /* Estilo base que toda casa do tabuleiro terá */
@@ -64,7 +77,6 @@
 }
 
 /* Feedback visual de clique */
-
 .casa.acerto {
     background-color: #22c55e;
     transition: background-color 0.2s ease;
@@ -73,4 +85,10 @@
 .casa.erro {
     background-color: #ef4444;
     transition: background-color 0.2s ease;
+}
+
+/* Oculta as réguas do tabuleiro*/
+.invisivel {
+    opacity: 0;
+    pointer-events: none;
 }

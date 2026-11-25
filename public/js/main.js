@@ -1,23 +1,23 @@
 import { gerarNovaCoordenada } from './sorteio.js';
 import { validarJogada, resetarPlacar, obterEstatisticasFinais } from './jogo.js';
-import { criarTabuleiro } from './tabuleiro.js';
+import { Tabuleiro } from './tabuleiro.js';
 import { Cronometro } from './cronometro.js';
 
 const elementoAlvo = document.getElementById('coordenada-alvo');
 const containerTabuleiro = document.getElementById('tabuleiro-container');
-
 const elementoAcerto = document.getElementById('qtd-acertos');
 const elementoSequencia = document.getElementById('qtd-sequencia');
 const modalFimJogo = document.getElementById('modal-fim-jogo');
 const btnRestartModal = document.getElementById('btn-restart-modal');
-
 const modalPontos = document.getElementById('modal-pontos');
 const modalErros = document.getElementById('modal-erros');
 const modalStreak = document.getElementById('modal-streak');
 const modalPrecisao = document.getElementById('modal-precisao');
-
 const tempoRestante = document.getElementById('tempo-restante');
 const btnIniciar = document.getElementById('btn-iniciar');
+const btnModoCego = document.getElementById('btn-modo-cego');
+const cordenadaNumeros = document.getElementById('rotulos-numeros');
+const coordenadaLetras = document.getElementById('rotulos-letras');
 
 const relogioPartida = new Cronometro(
     10,
@@ -73,7 +73,9 @@ function lidarComCliqueTabuleiro(event) {
 }
 
 if (containerTabuleiro) {
-    criarTabuleiro(containerTabuleiro);
+    const meuTabuleiro = new Tabuleiro(containerTabuleiro);
+
+    meuTabuleiro.renderizar();
 }
 
 atualizarRodadaNaTela();
@@ -103,4 +105,9 @@ btnRestartModal.addEventListener('click', () => {
     relogioPartida.start();
     containerTabuleiro.addEventListener('click', lidarComCliqueTabuleiro);
     atualizarRodadaNaTela();
+
+});
+
+btnModoCego.addEventListener('click', () => {
+    cordenadaNumeros.classList.toggle('invisivel');coordenadaLetras.classList.toggle('invisivel');
 });
